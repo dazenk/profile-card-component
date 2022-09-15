@@ -1,0 +1,177 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+// Mixins
+@mixin display($f-direction: row) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $f-direction;
+}
+
+// Variables
+$dark-cyan: hsl(185, 75%, 39%);
+$very-dark-desaturated-blue: hsl(229, 23%, 23%);
+$dark-grayish-blue: hsl(227, 10%, 46%);
+$dark-gray: hsl(0, 0%, 59%);
+$white: hsl(0, 0%, 100%);
+
+
+// Styles
+* {
+    margin: 0;
+    padding: 0;
+}
+  
+html {
+    min-width: 100vw;
+
+    body {
+        font-family: 'Kumbh Sans', sans-serif;
+    }
+}
+
+.container {
+    @include display();
+    position: relative;
+    background-color: $dark-cyan;
+    max-width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    .img-top {
+        position: relative;
+        width: 160%;
+        height: 160%;
+        top: -70%;
+        right: -2%;
+    }
+
+    .img-bottom {
+        position: relative;
+        width: 160%;
+        height: 160%;
+        bottom: -70%;
+        left: -2%;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        border-radius: 13px;
+        box-sizing: border-box;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+        position: absolute;
+        width: 22rem;
+        height: 23rem;
+        background-color: $white;
+        margin: 30px;
+        overflow: hidden;
+        z-index: 1;
+
+        .header-content {
+            width: 22rem;
+            height: 8.5rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            .img-container {
+                background-color: $white;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-self: center;
+                border: 5px solid $white;
+                border-radius: 55px;
+                overflow: hidden;
+                width: 100px;
+                height: 100px;
+                margin-bottom: 15px;
+                top: -50px;
+            }
+
+            img {
+                border-radius: 55px;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            h1 {
+                color: $very-dark-desaturated-blue;
+                position: relative;
+                align-self: center;
+                font-size: 18px;
+                font-weight: 700;
+                margin-bottom: 8px;
+                top: -50px;
+
+                span {
+                    color: $dark-grayish-blue;
+                    font-weight: 400;
+                    margin-left: 3px;
+                }
+            }
+
+            .city {
+                color: $dark-grayish-blue;
+                position: relative;
+                align-self: center;
+                font-size: 14px;
+                font-weight: 400;
+                margin-bottom: 20px;
+                top: -50px;
+            }
+
+            .divisor {
+                position: relative;
+                width: 100%;
+                border-top: 1px solid hsla(0, 0%, 59%, 0.25);
+                top: -50px;
+            }
+
+            .footer {
+                display: flex;
+                position: relative;
+                justify-content: space-evenly;
+                top: -28px;
+
+                .wrapper {
+                    @include display(column);
+                    gap: 4px;
+                    width: 62px;
+
+                    .number {
+                        font-size: 18px;
+                        font-weight: 700;
+                    }
+
+                    .text {
+                        color: $dark-grayish-blue;
+                        font-size: 10px;
+                        letter-spacing: 2px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+
+        .card {
+            width: 20rem;
+        }
+    }
+}
